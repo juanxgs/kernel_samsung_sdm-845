@@ -1,0 +1,6 @@
+### BUILD ###
+out/
+arch/arm64/boot/Image
+buildmenu
+buildkernel
+arch/arm64/configs/menu_*
