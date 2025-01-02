@@ -690,13 +690,6 @@ static inline void __ss_logger_level_text(char *buffer, size_t count)
 
 static int ss_combine_pmsg(char *buffer, size_t count, unsigned int level)
 {
-	char *dynamic_buffer = (char *)malloc(count * sizeof(char));
-    if (dynamic_buffer == NULL) {
-        // Manejar error de asignación de memoria
-        pr_warn("Failed to allocate memory\n");
-        return -1;
-    }
-
 	switch (level) {
 	case SS_LOGGER_LEVEL_HEADER:
 		__ss_logger_level_header(buffer, count);
