@@ -1208,15 +1208,11 @@ static int ov2659_s_stream(struct v4l2_subdev *sd, int on)
 		goto unlock;
 	}
 
-	ret = ov2659_set_pixel_clock(ov2659);
-	if (!ret)
-		ret = ov2659_set_frame_size(ov2659);
-	if (!ret)
-		ret = ov2659_set_format(ov2659);
-	if (!ret) {
-		ov2659_set_streaming(ov2659, 1);
-		ov2659->streaming = on;
-	}
+	ov2659_set_pixel_clock(ov2659);
+	ov2659_set_frame_size(ov2659);
+	ov2659_set_format(ov2659);
+	ov2659_set_streaming(ov2659, 1);
+	ov2659->streaming = on;
 
 unlock:
 	mutex_unlock(&ov2659->lock);
