@@ -269,7 +269,6 @@ int snd_timer_open(struct snd_timer_instance **ti,
 		mutex_lock(&register_mutex);
 		if (num_slaves >= MAX_SLAVE_INSTANCES) {
 			err = -EBUSY;
-			goto unlock;
 		}
 		timeri = snd_timer_instance_new(owner, NULL);
 		if (!timeri) {
