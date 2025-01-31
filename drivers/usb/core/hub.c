@@ -4865,6 +4865,7 @@ hub_power_remaining(struct usb_hub *hub)
 static void hub_port_connect(struct usb_hub *hub, int port1, u16 portstatus,
 		u16 portchange)
 {
+	bool retry_locked;
 	int ret, status = -ENODEV;
 	int i;
 	unsigned unit_load;
@@ -4879,8 +4880,7 @@ static void hub_port_connect(struct usb_hub *hub, int port1, u16 portstatus,
 		"port %d, status %04x, change %04x, %s\n",
 		port1, portstatus, portchange, portspeed(hub, portstatus));
 #endif
-	bool retry_locked;
-
+	
 	/* Disconnect any existing devices under this port */
 	if (udev) {
 		/* don't need to notify situation to usb phy at sdm845 */
