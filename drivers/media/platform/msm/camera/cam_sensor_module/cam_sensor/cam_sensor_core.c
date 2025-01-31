@@ -1382,10 +1382,6 @@ void cam_sensor_shutdown(struct cam_sensor_ctrl_t *s_ctrl)
 
 	s_ctrl->streamon_count = 0;
 	s_ctrl->streamoff_count = 0;
-<<<<<<< HEAD
-
-=======
->>>>>>> 71afd74e7796 (msm: camera: revert probe logic changes introduced in 3b7805c)
 	s_ctrl->sensor_state = CAM_SENSOR_INIT;
 }
 
